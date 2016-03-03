@@ -18,4 +18,13 @@ def handle_request(*args, **kwargs):
     # we can set breakpoints for debugging with celery's rdb
     # rdb.set_trace()
 
-    return 'Args: {}\nKwargs: {}'.format(args, kwargs)
+    return 'Args: {} - Kwargs: {}'.format(args, kwargs)
+
+
+from celery import Task
+
+
+class SMPPTask(Task):
+    def run(self, *args, **kwargs):
+        return 'Args: {}\nKwargs: {}'.format(args, kwargs)
+app.tasks[SMPPTask.name]

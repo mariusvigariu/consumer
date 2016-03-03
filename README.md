@@ -14,8 +14,11 @@ Steps to get started:
 3. Run celery in foreground:
     `celery worker --app=consumer --loglevel=info`
 
-4. Publish a message:
+4. Publish a message as a 3rd party publisher - pika client:
     `python publish.py`
+
+5. Publish a message as Celery publiser:
+    `python celery_publish.py`
 
 
 Useful links:
